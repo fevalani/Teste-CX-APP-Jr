@@ -4,3 +4,38 @@
 html {
   overflow-y: auto;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 174px;
+  height: 32px;
+  padding: 12px 20px;
+  margin: 4px auto;
+  display: inline-block;
+  color: #000;
+  border: 1px solid #1f73b7;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline-color: #076fc3;
+}
+
+button {
+  background-color: #1f73b7;
+
+  color: white;
+  font-weight: bold;
+  padding: 14px 20px;
+  margin: 4px auto;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 174px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
