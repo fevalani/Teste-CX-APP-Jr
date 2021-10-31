@@ -25,5 +25,10 @@ function changeSubject() {
 
   const newSubject = `${inputText} ${dateAndHour}`;
 
-  client.set("ticket.subject", newSubject).catch((err) => alert("Error"));
+  client
+    .set("ticket.subject", newSubject)
+    .then(() => {
+      Main();
+    })
+    .catch((err) => alert("Error"));
 }
