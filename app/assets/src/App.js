@@ -6,5 +6,24 @@ client.on("app.registered", (e) => {
 });
 
 // Create screen context
+import Core from "./Core.js";
 import Main from "./Main.js";
 Main();
+
+const button = document.getElementById("change-button");
+
+button.addEventListener("click", changeSubject);
+
+function changeSubject() {
+  const inputText = document.getElementById("subject-input").value.trim() ?? "";
+  if (!inputText) {
+    console.log("Não Rolou");
+    return;
+  }
+
+  const dateAndHour = Core.getDateAndHour();
+
+  const newSubject = `${inputText} ${dateAndHour}`;
+
+  client.set("ticket.subject", newSubject).catch((err) => alert("Error"));
+}

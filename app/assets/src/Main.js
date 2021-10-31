@@ -1,5 +1,3 @@
-import Core from "./Core.js";
-
 const client = ZAFClient.init();
 let settings;
 
