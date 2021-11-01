@@ -4,3 +4,60 @@
 html {
   overflow-y: auto;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  width: 174px;
+  height: 32px;
+  padding: 12px 20px;
+  margin: 4px auto;
+  color: #000;
+  border: 1px solid #1f73b7;
+  border-radius: 4px;
+  outline-color: #076fc3;
+}
+
+button {
+  background-color: #1f73b7;
+
+  color: white;
+  font-weight: bold;
+  padding: 14px 20px;
+  margin: 4px auto 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 174px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  width: 100%;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px auto;
+  padding: 5px;
+  width: 100%;
+  border-radius: 4px;
+  border: 2px dotted #c7c7c7;
+}
