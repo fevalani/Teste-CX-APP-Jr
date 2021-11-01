@@ -9,26 +9,40 @@ client.on("app.registered", (e) => {
 import Core from "./Core.js";
 import Main from "./Main.js";
 Main();
+populateTickets();
 
 const button = document.getElementById("change-button");
 
 button.addEventListener("click", changeSubject);
 
 function changeSubject() {
-  const inputText = document.getElementById("subject-input").value.trim() ?? "";
+  const inputElement = document.getElementById("subject-input");
+  let inputText = document.getElementById("subject-input").value.trim();
+
   if (!inputText) {
-    console.log("Não Rolou");
     return;
   }
 
   const dateAndHour = Core.getDateAndHour();
-
   const newSubject = `${inputText} ${dateAndHour}`;
 
   client
     .set("ticket.subject", newSubject)
     .then(() => {
-      Main();
+      inputElement.value = "";
+      populateTickets();
     })
-    .catch((err) => alert("Error"));
+    .catch((err) => console.log(err));
+}
+
+function populateTickets() {
+  const list = document.getElementById("tickets-list");
+  let tickets = [];
+
+  client.request({ url: "/api/v2/tickets/recent" }).then((data) => {
+    data.tickets.forEach((ticket) => {
+      tickets.push(`<li><span>Ticket ${ticket.id}: </span><span>${ticket.subject}</span></li>`);
+    });
+    list.innerHTML = tickets.join("");
+  });
 }
