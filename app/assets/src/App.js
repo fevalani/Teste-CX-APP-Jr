@@ -41,7 +41,9 @@ function populateTickets() {
 
   client.request({ url: "/api/v2/tickets/recent" }).then((data) => {
     data.tickets.forEach((ticket) => {
-      tickets.push(`<li><span>Ticket ${ticket.id}: </span><span>${ticket.subject}</span></li>`);
+      tickets.push(
+        `<li><a id="ticket-link" href="${client["_origin"]}/agent/tickets/${ticket.id}" target="_blank"><span>Ticket ${ticket.id}: </span><span>${ticket.subject}</span></a></li>`
+      );
     });
     list.innerHTML = tickets.join("");
   });
